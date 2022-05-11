@@ -66,7 +66,8 @@ fn make_uri(path: &Path) -> anyhow::Result<String> {
     }
 
     // 読み取りしか行わないので immutable にする。
-    // これを行わないと、path と同じディレクトリに `{path}-shm`, `{path}-wal` が無駄に生成される。
+    // これにより、Firefox が起動中でもロックの影響を受けずに読み取れる。
+    // また、path と同じディレクトリに `{path}-shm`, `{path}-wal` が生成されるのも防げる。
     uri.push_str("?immutable=1");
 
     Ok(uri)

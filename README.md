@@ -10,5 +10,3 @@ I tested this program only on Linux.
 ```sh
 $ cargo run -- /path/to/cookies.sqlite
 ```
-
-Note: if Firefox is running, access to `cookies.sqlite` will fail due to a lock. In this case, quit Firefox or copy `cookies.sqlite`.
